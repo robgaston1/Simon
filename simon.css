@@ -1,5 +1,19 @@
-.test {
-    color: aqua;
-    font-family: fantasy;
-    text-decoration: overline;
+.html {
+  align-text: center;
+}
+
+.circle {
+  margin: 10% auto;
+  border: 1px solid #333333;
+  background: #333333;
+	border-radius: 50%;
+	width: 400px;
+	height: 400px; 
+}
+
+.green {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  border: 25px solid green;
 }
