@@ -9,11 +9,41 @@
 	border-radius: 50%;
 	width: 400px;
 	height: 400px; 
+    padding: 25px;
 }
 
 .green {
-  border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  border: 25px solid green;
+  border-top-left-radius: 100%;
+    box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border: 100px solid #00A74A;
+    float: left;
+}
+
+.red {
+  border-top-right-radius: 100%;
+    box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border: 100px solid #9F0F17;
+    float: right;
+}
+
+.yellow {
+  border-bottom-left-radius: 100%;
+    box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border: 100px solid #CCA707;
+    float: left;
+}
+
+.blue {
+  border-bottom-right-radius: 100%;
+    box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  border: 100px solid #094A8F;
+    float: right;
 }
