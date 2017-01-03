@@ -86,3 +86,37 @@
     border-radius: 50%;
     z-index: 4;
 }
+
+#title {
+    text-align: center;
+}
+
+#top_controls > div {
+    margin-left: 25px;
+}
+
+#count {
+    height: 35px;
+    width: 40px;
+    background-color: #32050C;
+    border-radius: 15%;
+    display: inline-block;
+}
+
+#start {
+    height: 15px;
+    width: 15px;
+    background-color: #FC0102;
+    border-radius: 50%;
+    border: 5px solid #444444;
+    display: inline-block;
+}
+
+#strict {
+    height: 15px;
+    width: 15px;
+    background-color:#FFFF00;
+    border-radius: 50%;
+    border: 5px solid #444444;
+    display: inline-block;
+}
