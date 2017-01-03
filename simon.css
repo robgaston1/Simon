@@ -9,41 +9,80 @@
 	border-radius: 50%;
 	width: 400px;
 	height: 400px; 
-    padding: 25px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.circle > div {
+    width: 200px;
+    height: 200px;
+}
+
+#one {
+    float: left;
+}
+
+#two {
+    float: right;
+}
+
+#three {
+    float: left;    
+}
+
+#four {
+    float: right;
 }
 
 .green {
   border-top-left-radius: 100%;
-    box-sizing: border-box;
-  width: 200px;
-  height: 200px;
-  border: 100px solid #00A74A;
+  border: 95px solid #00A74A;
     float: left;
+    z-index: 2;
 }
 
 .red {
   border-top-right-radius: 100%;
-    box-sizing: border-box;
-  width: 200px;
-  height: 200px;
-  border: 100px solid #9F0F17;
+  border: 95px solid #9F0F17;
     float: right;
+    z-index: 2;
 }
 
 .yellow {
-  border-bottom-left-radius: 100%;
-    box-sizing: border-box;
-  width: 200px;
-  height: 200px;
-  border: 100px solid #CCA707;
     float: left;
+  border-bottom-left-radius: 100%;
+  border: 95px solid #CCA707;   
+    margin-top: 12px;
+    z-index: 2;
 }
 
 .blue {
   border-bottom-right-radius: 100%;
-    box-sizing: border-box;
-  width: 200px;
-  height: 200px;
-  border: 100px solid #094A8F;
+  border: 95px solid #094A8F;
     float: right;
+    margin-top: 12px;
+    z-index: 2;
+}
+
+#innerBackground {
+    position: absolute;
+    top: 110px;
+    left: 110px;
+    background: #333333;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+#textCircle {
+    position: absolute;
+    top: 120px;
+    left: 120px;
+    background: #ECE7EE;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: 4;
 }
