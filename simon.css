@@ -9,7 +9,7 @@
 	border-radius: 50%;
 	width: 400px;
 	height: 400px; 
-    padding: 20px;
+    //padding: 20px;
     position: relative;
     z-index: 1;
 }
@@ -20,19 +20,23 @@
 }
 
 #one {
-    float: left;
+    position: absolute;
 }
 
 #two {
-    float: right;
+    position: absolute;
+    left: 200px;
 }
 
 #three {
-    float: left;    
+    position: absolute; 
+    top: 200px;
 }
 
 #four {
-    float: right;
+    position: absolute;
+    top:200px;
+    left:200px;
 }
 
 .green {
