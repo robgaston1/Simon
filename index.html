@@ -13,7 +13,13 @@
 
 </head>
 <body>
-
+    <audio id="sound" preload="auto">
+        <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg">
+        <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg">
+        <source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg">
+        <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg">
+        Your browser does not support the audio element!
+    </audio>
     <div class="circle">
         <div id="one"><div class="green"></div></div>
         <div id="two"><div class="red"></div></div>
@@ -23,14 +29,18 @@
         <div id="textCircle">
             <h1 id="title">SIMON&reg</h1>
             <div id="top_controls">
-                <div id="count"></div>
-                <div id="start"></div>
-                <div id="strict"></div>
-            </div>
-            <div id="labelctrls">
-                <p>Count</p>
-                <p>Start</p>
-                <p>Strict</p>
+                <div class="column">
+                    <div id="count"></div>
+                    <p>Count</p>
+                </div>
+                <div class="column">
+                    <div id="start"></div>
+                    <p>Start</p>
+                </div>
+                <div class="column">
+                    <div id="strict"></div>
+                    <p>Strict</p>
+                </div>
             </div>
                 <div id="onswitch">
                     <label class="switch">

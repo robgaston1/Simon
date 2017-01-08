@@ -104,12 +104,15 @@
     margin-left: 10px;
 }
 
+.column {
+    display: inline-block;
+}
+
 #count {
     height: 35px;
     width: 40px;
     background-color: #32050C;
     border-radius: 15%;
-    display: inline-block;
 }
 
 #start {
@@ -118,7 +121,6 @@
     background-color: #FC0102;
     border-radius: 50%;
     border: 5px solid #444444;
-    display: inline-block;
 }
 
 #strict {
@@ -127,7 +129,6 @@
     background-color:#FFFF00;
     border-radius: 50%;
     border: 5px solid #444444;
-    display: inline-block;
 }
 
 #labelctrls {
