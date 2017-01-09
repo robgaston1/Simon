@@ -3,12 +3,7 @@ $(document).ready(function () {
     var sounds = document.getElementById("sound");
     sounds.preload = "auto";
      
-    function generateSequence() {
-        var num = Math.floor(Math.random() * 4) + 1;
-        sqnceArr.push(num);
-        console.log(sqnceArr);
-        playSequence();
-    }
+   
     
     function playGreen(){
         $('.green').css('border-color', '#6BF9A2');
@@ -39,11 +34,23 @@ $(document).ready(function () {
                 playRed();
                 break;
             case 3:
-                playBlue();
+                playYellow();
                 break;
             case 4:
-                playYellow();
+                playBlue();
         }
+    }
+    
+    function startGame(){
+        if ($('input').is(':checked')){
+        setTimeout(generateSequence, 500);
+        }
+    }
+    
+    function generateSequence() {
+        var num = Math.floor(Math.random() * 4) + 1;
+        sqnceArr.push(num);
+        playSequence();
     }
     
     function playSequence() {
@@ -56,8 +63,26 @@ $(document).ready(function () {
             } 
             callTimer(arg, i);
         }
+        playerInput(); 
+    }
+    
+    function wrongPlay() {
+        console.log("Buuuuuzzzzz!");
     }
    
-    $('#generate').click(generateSequence);
+    function playerInput() {
+            $(".play").on("click", function(event) {
+            clicked = event.target.id;
+            console.log(clicked);
+            if (clicked == sqnceArr[0]) {
+            console.log("correct!")
+            } else console.log("wrong!")
+        })
+    }
+            
+
     
+    $('#start').click(startGame);
+    
+   
 });
