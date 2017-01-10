@@ -2,7 +2,8 @@
 
 $(document).ready(function () {
     var sqnceArr = [];
-    presses = 0;
+    var presses = 0;
+    var timer;
 
     
     function playGreen() {
@@ -57,11 +58,11 @@ $(document).ready(function () {
         for (var i = 0; i < arrLen; i++) { 
             arg = sqnceArr[i];
             function callTimer(num, scnds){
-                setTimeout(function() {buttonPlay(num);}, i * 1000 );
+                timer = setTimeout(function() {buttonPlay(num);}, i * 1000 );
             } 
             callTimer(arg, i);
         }
-        playerInput(); 
+        setTimeout(playerInput, i * 1000); 
     }
     
     function generateSequence() {
@@ -72,19 +73,35 @@ $(document).ready(function () {
     
     function startGame() {
         if ($('input').is(':checked')) {
-            setTimeout(generateSequence, 500);
+            while (timer--) {
+                clearTimeout(timer);
+            }
+            presses = 0;
+            sqnceArr = [];
+            $('.play').off();
+            setTimeout(generateSequence, 1200);
         }
     }
     
     function wrongPlay() {
-        $('.play').off();
+        presses = 0;
         alert("Sorry wrong button");
-        //playSequence();
+        setTimeout(playSequence, 1000);
     }
-   
+    
+    function gameWon(){
+        function winMsg() {
+            alert("Congrats on winning.");
+        }
+        var winTimer = setTimeout(winMsg, 1000);
+        startGame();
+    }
+    
     function checkTurn() {
         console.log("checkTurn, presses:", presses);
-        if (presses < sqnceArr.length) {
+        if (presses == 5) {
+            gameWon();
+        } else if (presses < sqnceArr.length) {
             playerInput();
         } else {
             presses = 0;
@@ -102,6 +119,7 @@ $(document).ready(function () {
                 $(".play").off();
                 checkTurn();
             } else {
+                 $(".play").off();
                 wrongPlay();
             }
             
@@ -109,7 +127,10 @@ $(document).ready(function () {
 
     }//end of playerInput
         
-    $('#start').click(startGame);
+    
+  
+        $('#start').click(startGame);
+    
     
    
 });
