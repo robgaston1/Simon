@@ -8,21 +8,29 @@ $(document).ready(function () {
 
     
     function playGreen() {
+        var grnSound = new Audio('simon-higha.wav');
+        grnSound.play();
         $('.green').css('border-color', '#6BF9A2');
         setTimeout(function () {$('.green').css('border-color', '#00A74A'); }, 700);
     }
     
     function playRed() {
+        var redSound = new Audio('simon-e.wav');
+        redSound.play();
         $('.red').css('border-color', '#f5545d');
         setTimeout(function () {$('.red').css('border-color', '#9F0F17'); }, 700);
     }
     
     function playBlue() {
+        var blueSound = new Audio('simon-a.wav');
+        blueSound.play();
         $('.blue').css('border-color', '#79b8fb');
         setTimeout(function () {$('.blue').css('border-color', '#094A8F'); }, 700);
     }
     
     function playYellow() {
+        var ylwSound = new Audio('simon-c.wav');
+        ylwSound.play();
         $('.yellow').css('border-color', '#ffd82e');
         setTimeout(function () {$('.yellow').css('border-color', '#CCA707'); }, 700);
     }
@@ -102,12 +110,12 @@ $(document).ready(function () {
         function winMsg() {
             alert("Congrats on winning.");
         }
-        var winTimer = setTimeout(winMsg, 1000);
-        startGame();
+        setTimeout(winMsg, 1000);
+        setTimeout(startGame, 500);
     }
     
     function checkTurn() {
-        if (presses == 5) {
+        if (presses == 20) {
             gameWon();
         } else if (presses < sqnceArr.length) {
             playerInput();
