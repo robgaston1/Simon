@@ -4,6 +4,7 @@ $(document).ready(function () {
     var sqnceArr = [];
     var presses = 0;
     var timer;
+    var strict = "off";
 
     
     function playGreen() {
@@ -79,6 +80,8 @@ $(document).ready(function () {
             presses = 0;
             sqnceArr = [];
             $('.play').off();
+            $('#start').css('background-color', '#3eff00');
+            setTimeout(function () {$('#start').css('background-color', '#FC0102'); }, 700);
             setTimeout(generateSequence, 1200);
         }
     }
@@ -86,7 +89,13 @@ $(document).ready(function () {
     function wrongPlay() {
         presses = 0;
         alert("Sorry wrong button");
-        setTimeout(playSequence, 1000);
+        function checkStrict() {
+            if (strict == "on") {
+                sqnceArr = [];
+                generateSequence();
+            } else playSequence();
+        }
+        setTimeout(checkStrict, 1000);
     }
     
     function gameWon(){
@@ -98,7 +107,6 @@ $(document).ready(function () {
     }
     
     function checkTurn() {
-        console.log("checkTurn, presses:", presses);
         if (presses == 5) {
             gameWon();
         } else if (presses < sqnceArr.length) {
@@ -110,7 +118,6 @@ $(document).ready(function () {
     }
     
     function playerInput() {
-        console.log("playInput, presses:", presses);
         $(".play").on("click", function() {
             clicked = $(this).data('object').button;
             if (clicked == sqnceArr[presses]) {
@@ -127,10 +134,18 @@ $(document).ready(function () {
 
     }//end of playerInput
         
+    function strictToggle(){
+        if (strict == "off") {
+            strict = "on";
+            $('#strict').css('background-color', '#3eff00');
+        } else {
+            strict = "off";
+            $('#strict').css('background-color', '#FFFF00');
+        }
+    }
     
-  
         $('#start').click(startGame);
-    
+        $('#strict').click(strictToggle);
     
    
 });
