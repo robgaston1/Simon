@@ -1,5 +1,6 @@
-.html {
-  align-text: center;
+body {
+    text-align: center;
+    background-color: rgb(138, 162, 163);
 }
 
 .circle {
@@ -103,11 +104,13 @@
 }
 
 #top_controls > div {
-    margin-left: 10px;
+/*    margin-left: 10px;*/
+    width: 40px;
 }
 
 .column {
     display: inline-block;
+    height: 60px;
 }
 
 .column p {
@@ -116,14 +119,15 @@
 }
 
 #count {
-    height: 35px;
-    width: 40px;
+    height: 25px;
+    width: 25px;
     background-color: #32050C;
     border-radius: 15%;
     color: #00A74A;
-    padding: 10px 12px 10px 12px;
-    box-sizing: border-box;
-    text-align: right;
+    padding: 7px 5px 0px 5px;
+    text-align: center;
+    margin: auto;
+    
 }
 
 #start {
@@ -132,6 +136,7 @@
     background-color: #FC0102;
     border-radius: 50%;
     border: 5px solid #444444;
+    margin: auto;
 }
 
 #strict {
@@ -140,6 +145,7 @@
     background-color:#FFFF00;
     border-radius: 50%;
     border: 5px solid #444444;
+    margin: auto;
 }
 
 #labelctrls {
