@@ -68,6 +68,7 @@ $(document).ready(function () {
             arg = sqnceArr[i];
             function callTimer(num, scnds){
                 timer = setTimeout(function() {buttonPlay(num);}, i * 1000 );
+                console.log("start timer", timer);
             } 
             callTimer(arg, i);
         }
@@ -80,19 +81,33 @@ $(document).ready(function () {
         playSequence();
     }
     
-    function startGame() {
-        if ($('input').is(':checked')) {
-            while (timer--) {
+    function generateSequenceStart() {
+        console.log("generateSequenceStart");
+        var num = Math.floor(Math.random() * 4) + 1;
+        sqnceArr.push(num);
+        playSequence();
+    }
+    
+    function killTimers() {
+         do {
+                console.log("ending:", timer);
                 clearTimeout(timer);
+         } while (timer--);
+
+    }
+    
+    function startGame() {
+            if (sqnceArr.length > 0) {
+                killTimers();
             }
             presses = 0;
             sqnceArr = [];
             $('.play').off();
             $('#start').css('background-color', '#3eff00');
             setTimeout(function () {$('#start').css('background-color', '#FC0102'); }, 700);
-            setTimeout(generateSequence, 1200);
+            setTimeout(generateSequenceStart, 1200);
         }
-    }
+    
     
     function wrongPlay() {
         presses = 0;
@@ -121,13 +136,15 @@ $(document).ready(function () {
             playerInput();
         } else {
             presses = 0;
-            setTimeout(generateSequence, 1500)
+            console.log("calling number");
+            var addNumTimer = setTimeout(generateSequence, 1500);
         }
     }
     
     function playerInput() {
         $(".play").on("click", function() {
             clicked = $(this).data('object').button;
+            console.log(clicked, presses);
             if (clicked == sqnceArr[presses]) {
                 presses++;
                 $(this).data('object').func();   
@@ -152,8 +169,26 @@ $(document).ready(function () {
         }
     }
     
-        $('#start').click(startGame);
-        $('#strict').click(strictToggle);
+    function turnOff() {
+        killTimers();
+        $('.play').off();
+    }
     
-   
+        $('#start').on('click', function(){
+            if ($('input').is(':checked')) {
+                startGame();
+            }
+        });
+    
+        $('#strict').on('click', function() {
+            if ($('input').is(':checked')) {
+                 strictToggle();
+            }
+        });
+            
+        $('#onOff').on('click', function () {
+            if ($('input').is(':checked') == false){
+                turnOff();
+            };
+        });
 });
