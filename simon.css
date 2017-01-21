@@ -4,12 +4,12 @@ body {
 }
 
 .circle {
-  margin: 10% auto;
-  border: 1px solid #333333;
-  background: #333333;
-	border-radius: 50%;
-	width: 400px;
-	height: 400px; 
+    margin: 10% auto;
+    border: 1px solid #333333;
+    background: #333333;
+    border-radius: 50%;
+    width: 400px;
+    height: 400px; 
     padding: 20px;
     position: relative;
     z-index: 1;
@@ -229,3 +229,8 @@ input:checked + .slider:before {
     margin: 0px;
 }
 
+@media (max-width: 480px) {
+    .circle {
+        transform:  scale(.60,.60);
+    }
+}
